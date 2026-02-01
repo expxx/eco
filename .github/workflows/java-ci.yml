@@ -28,9 +28,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - run: ./gradlew build --full-stacktrace
+      - run: ./gradlew build --full-stacktrace --no-daemon
 
       - uses: actions/upload-artifact@v6
         with:
           name: eco-dev-${{ steps.vars.outputs.sha_short }}
           path: build/libs
+
+      - run: ./gradlew publish --full-stacktrace --no-daemon
