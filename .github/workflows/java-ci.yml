@@ -36,3 +36,5 @@ jobs:
           path: build/libs
 
       - run: ./gradlew publish --full-stacktrace --no-daemon
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
